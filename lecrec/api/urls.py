@@ -6,6 +6,8 @@ from api.views import (
     record_converter,
 )
 
+import api.views as views
+
 app_name = 'api'
 urlpatterns = [
     # records
@@ -13,4 +15,6 @@ urlpatterns = [
     url(r'^records$', RecordListCreate.as_view(), name='record-list-create'),
     url(r'^records/(?P<pk>[\d]+)$', RecordRetrieveDeleteUpdate.as_view(), name='record-retrieve-update-destroy'),
     url(r'^records/converter$', record_converter, name='record-convert'),
+
+    url('jyptest', views.jyp_test(), name='jyptest'),
 ]

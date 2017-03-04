@@ -122,3 +122,12 @@ def record_converter(request):
     record.save()
 
     return HttpResponse('success')
+
+def jyp_test(request):
+    print('hi')
+
+    from api.transcribe import _async_transcribe
+    from api.wav import wav_split
+
+    filename = 'little_prince.wav'
+    _async_transcribe('/test',filename,wav_split(filename))
