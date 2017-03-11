@@ -20,7 +20,8 @@ from api.wav import name_split, wav_split
 # Application default credentials provided by env variable
 # GOOGLE_APPLICATION_CREDENTIALS
 def get_speech_service():
-    credentials = GoogleCredentials.from_stream('api/googleapi_auth/LecRec-a4f4c7931558.json').create_scoped(
+    authfilename = 'Lecrec-kujyp-478172a2b31d'
+    credentials = GoogleCredentials.from_stream('api/googleapi_auth/'+ authfilename + '.json').create_scoped(
         ['https://www.googleapis.com/auth/cloud-platform'])
     http = httplib2.Http()
     credentials.authorize(http)
