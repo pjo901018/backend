@@ -16,5 +16,5 @@ urlpatterns = [
     url(r'^records/(?P<pk>[\d]+)$', RecordRetrieveDeleteUpdate.as_view(), name='record-retrieve-update-destroy'),
     url(r'^records/converter$', record_converter, name='record-convert'),
 
-    url('jyptest', views.jyp_test, name='jyptest'),
+    url(r'^jyptest/(?P<filename>[\w]+)/$', views.jyp_test, name='jyptest'),
 ]

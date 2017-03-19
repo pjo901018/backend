@@ -123,11 +123,28 @@ def record_converter(request):
 
     return HttpResponse('success')
 
-def jyp_test(request):
-    print('hi')
-
-    from api.transcribe import _async_transcribe
+def jyp_test(request,filename):
+    from api.transcribe import async_transcribe, merge
     from api.wav import wav_split
+    import os
 
-    filename = 'little_prince.wav'
-    _async_transcribe('/test',filename,wav_split(filename))
+    dirpath = MEDIA_ROOT
+    filename = filename + '.file.wav'
+    print(filename)
+    filepath = os.path.join(dirpath, filename)
+    print(filepath)
+
+    start_times = wav_split(filepath, filename)
+    print(start_times)
+    tups = async_transcribe(filepath, filename, start_times)
+    print(tups)
+
+    tups = merge(tups)
+    result = []
+    for tup in tups:
+        result.append({'text': tup[0], 'time': tup[1]})
+        print(tup[0])
+
+    print(result)
+
+    return HttpResponse('Starttime : ' + start_times + '\n' + 'Text : ' + result)
