@@ -81,7 +81,7 @@ class RecordListCreate(generics.ListCreateAPIView):
 
         payload = {"filename": str(request.data.get('file')), "record_id": serializer.data.get('id')}
         try:
-            requests.post('http://yangyinetwork.asuscomm.com:88/api/records/converter', data=payload, timeout=1)
+            requests.post('http://211.192.93.48:88/api/records/converter', data=payload, timeout=1)
         except:
             pass
 
