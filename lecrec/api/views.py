@@ -141,10 +141,11 @@ def jyp_test(request,filename):
 
     tups = merge(tups)
     result = []
+    result_plaintext = ""
     for tup in tups:
         result.append({'text': tup[0], 'time': tup[1]})
-        print(tup[0])
+        result_plaintext = result_plaintext + tup[0] + '\n'
 
     print(result)
 
-    return HttpResponse('Starttime : ' + start_times + '\n' + 'Text : ' + str(result))
+    return HttpResponse('Starttime : ' + start_times + '\n' + 'Text : ' + result_plaintext)
