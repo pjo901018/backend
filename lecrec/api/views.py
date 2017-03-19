@@ -148,4 +148,4 @@ def jyp_test(request,filename):
 
     print(result)
 
-    return HttpResponse('Starttime : ' + start_times + '\n' + 'Text : ' + result_plaintext)
+    return HttpResponse('Text : ' + result_plaintext)
