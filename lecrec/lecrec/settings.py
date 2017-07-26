@@ -37,7 +37,7 @@ SECRET_KEY = 'fxxejq)bnkv7jj)4&tb92$vu&!go4#b)ka2yu_8$ij@3f0@o7g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-from lecrec.config import config
+from ..config import config
 ALLOWED_HOSTS = ['211.192.93.48', '211.249.62.164', config.HOST, 'yangyinetwork.asuscomm.com']
 
 # Application definition
